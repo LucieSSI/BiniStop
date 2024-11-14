@@ -8,8 +8,13 @@
   --bg-color: #f7f7f7;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
+  font-size: 1.1em;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -29,13 +34,19 @@ body {
   text-align: center;
 }
 .nav a {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: var(--prim-blue);
   color: white;
-  margin: 0 15px;
   text-decoration: none;
+  margin: 0 15px;
+  transition: background-color 0.3s;
   font-weight: 600;
 }
-.nav a:hover {
 
+.nav a:hover {
+  background-color: var(--prim-green);
+  text-decoration: none;
 }
 .hero {
   background-color: var(--prim-blue);
@@ -63,8 +74,26 @@ body {
 }
 
 .footer {
-  background-color: var(--prim-blue);
+  background-color: #333;
   color: white;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
+}
+
+.section {
+  padding: 60px 20px;
+  margin: 20px 0;
+}
+
+.header, .menu, .about, .contact, .footer {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 600;
+}
+h2 {
+  font-size: 2em;
+  font-weight: 500;
 }
