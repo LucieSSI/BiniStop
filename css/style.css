@@ -34,13 +34,13 @@ body {
   text-align: center;
 }
 .nav a {
-  padding: 10px 15px;
+  padding: 7px 12px;
   border-radius: 5px;
   background-color: var(--prim-blue);
   color: white;
   text-decoration: none;
   margin: 0 15px;
-  transition: background-color 0.3s;
+  transition: background-color 0.4s;
   font-weight: 600;
 }
 
