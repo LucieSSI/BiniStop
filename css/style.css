@@ -1,73 +1,70 @@
 /* style css */
-@media (max-width: 768px) {
-  :root {
-    --prim-pink: #FF69B4;
-    --prim-green: #3CB371;
-    --prim-blue: #6495ED;
-    --prim-yellow: #FFD700;
-    --text-color: #333;
-    --bg-color: #f7f7f7;
-  }
+:root {
+  --prim-pink: #FF69B4;
+  --prim-green: #3CB371;
+  --prim-blue: #6495ED;
+  --prim-yellow: #FFD700;
+  --text-color: #333;
+  --bg-color: #f7f7f7;
+}
 
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-  }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  .header {
-    background-color: var(--prim-pink);
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
-  .nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .nav a:hover {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  background-color: var(--prim-pink);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.nav a:hover {
 
-  }
-  .hero {
-    background-color: var(--prim-blue);
-    color: white;
-    padding: 50px;
-    text-align: center;
-  }
-  .menu {
-    background-color: var(--prim-green);
-    color: white;
-    padding: 50px;
-    text-align: center;
-  }
-  .about {
-    background-color: var(--prim-yellow);
-    color: black;
-    padding: 50px;
-    text-align: center;
-  }
+}
+.hero {
+  background-color: var(--prim-blue);
+  color: white;
+  padding: 50px;
+  text-align: center;
+}
+.menu {
+  background-color: var(--prim-green);
+  color: white;
+  padding: 50px;
+  text-align: center;
+}
+.about {
+  background-color: var(--prim-yellow);
+  color: black;
+  padding: 50px;
+  text-align: center;
+}
+.contact {
+  background-color: var(--prim-pink);
+  color: white;
+  padding: 50px;
+  text-align: center;
+}
 
-  .contact {
-    background-color: var(--prim-pink);
-    color: white;
-    padding: 50px;
-    text-align: center;
-  }
-
-  .footer {
-    background-color: var(--prim-blue);
-    color: white;
-    padding: 10px;
-    text-align: center;
-  }
+.footer {
+  background-color: var(--prim-blue);
+  color: white;
+  padding: 10px;
+  text-align: center;
 }
