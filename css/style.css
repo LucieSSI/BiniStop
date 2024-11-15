@@ -6,6 +6,15 @@
   --prim-yellow: #FFD700;
   --text-color: #333;
   --bg-color: #f7f7f7;
+
+  --lite-pink: #F4E7FB;
+  --lite-tan: #F3DCDC;
+  --lite-orange: #F5BCBA;
+  --lite-lavender: #E3AADD;
+  --lite-purple: #C8A8E9;
+  --lite-blue: #C3C7F3;
+
+  --my-gradient: linear-gradient(var(--lite-pink), var(--lite-orange), var(--lite-purple), var(--lite-blue));
 }
 
 html {
@@ -15,64 +24,93 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   font-size: 1.1em;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background: var(--my-gradient);
+  color: var(--lite-orange);
   line-height: 1.6;
   margin: 0;
   padding: 0;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 5px 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 5px 0;
+  transition: background-color 0.3s ease;
+}
+
+.top-bar a{
+  color: white;
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.top-bar a:hover {
+  color: var(--lite-blue);
+}
+.top-bar.scrolled {
+  background-color: var(--lite-blue)
+}
+
+.top-bar-icon {
+  width: 140px;
+  height: auto;
+  margin-right: 330px;
+  margin-left: -400px;
 }
 
 .logo {
   height: 300px;
   width: auto;
   vertical-align: middle;
+  margin-top: 25px;
 }
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 .header {
-  background-color: var(--prim-pink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--lite-orange);
   color: white;
   padding: 20px;
   text-align: center;
 }
-.nav a {
-  padding: 7px 12px;
-  border-radius: 5px;
-  background-color: var(--prim-blue);
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  transition: background-color 0.4s;
-  font-weight: 600;
-}
 
-.nav a:hover {
-  background-color: var(--prim-green);
-  text-decoration: none;
-}
 .hero {
-  background-color: var(--prim-blue);
+  background-color: var(--lite-lavender);
   color: white;
   padding: 50px;
   text-align: center;
 }
 .menu {
-  background-color: var(--prim-green);
+  background-color: var(--lite-purple);
   color: white;
   padding: 50px;
   text-align: center;
 }
 .about {
-  background-color: var(--prim-yellow);
-  color: black;
+  background-color: var(--lite-blue);
+  color: white;
   padding: 50px;
   text-align: center;
 }
 .contact {
-  background-color: var(--prim-pink);
+  background-color: var(--lite-orange);
   color: white;
   padding: 50px;
   text-align: center;
