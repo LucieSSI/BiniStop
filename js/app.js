@@ -1,10 +1,9 @@
-// app.js
 document.addEventListener('DOMContentLoaded', function() {
+  // Top bar scroll handling
   const topBar = document.querySelector(".top-bar");
   let lastScroll = 0;
   let scrollTimeout;
 
-  // Throttled scroll handler
   window.addEventListener("scroll", function() {
     if (!scrollTimeout) {
       scrollTimeout = setTimeout(() => {
@@ -22,43 +21,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, { passive: true });
 
-  // Initialize Swiper with mobile-friendly settings
-  const swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 20,
+  // Initialize Swiper
+  const swiper = new Swiper('.swiper', {
+    direction: 'horizontal',
     loop: true,
-    grabCursor: true,
-    touchRatio: 1,
-    touchAngle: 45,
-    resistance: true,
-    resistanceRatio: 0.65,
-    speed: 400,
+
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
     },
+
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
-      dynamicBullets: true,
     },
+
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+
     breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      480: {
+        slidesPerView: 1,
+        spaceBetween: 30
+      },
       640: {
         slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 30,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 40,
-      },
-    }
+        spaceBetween: 40
+      }
+    },
+
+    touchEventsTarget: 'container',
+    touchRatio: 1,
+    touchAngle: 45,
+    grabCursor: true,
   });
 
   // Smooth scroll for navigation links
