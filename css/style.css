@@ -15,25 +15,33 @@
   --lite-blue: #C3C7F3;
 
   --my-gradient: linear-gradient(var(--lite-pink), var(--lite-orange), var(--lite-purple), var(--lite-blue));
+  --header-height: 70px;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.1em;
+  font-size: 16px;
   background: var(--my-gradient);
   color: var(--lite-orange);
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  touch-action: manipulation;
 }
 
 /* Top Bar and Navigation Styles */
@@ -42,65 +50,73 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0);
-  padding: 5px 20px;
+  padding: 0 20px;
   width: 100%;
-  height: 70px;
+  height: var(--header-height);
   position: fixed;
   top: 0;
-  z-index: 10;
-  transition: background-color 0.3s ease;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
 }
 
 .top-bar.scrolled {
   background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .nav-links {
   display: flex;
   gap: 20px;
   align-items: center;
-  margin-left: auto; /* Push nav links to the left */
-  order: 2; /* Ensure nav links come first */
+  margin-left: auto;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
-  font-size: 1.3em;
+  font-size: 1.1rem;
   font-weight: 600;
   transition: color 0.3s;
-  white-space: nowrap; /* Prevent text wrapping */
+  padding: 8px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:active {
   color: var(--lite-blue);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .barlogo {
   display: flex;
   align-items: center;
-  order: 1; /* Ensure logo comes second */
-  margin-right: 20px; /* Add some spacing from the nav links */
+  height: 100%;
 }
 
 .topbar-icon {
-  width: 150px;
+  width: 120px;
   height: auto;
+  object-fit: contain;
 }
 
-/* Updated Header Styles */
+/* Header Styles */
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 65vh;
-  background-image: url("../icons/headerimg.png"); /* Update this path to your image */
+  min-height: 100vh;
+  background-image: url("../icons/headerimg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
   padding: 20px;
   text-align: center;
+  margin-top: calc(-1 * var(--header-height));
 }
 
 .header::before {
@@ -117,47 +133,65 @@ body {
 .logo-container {
   position: relative;
   z-index: 2;
-  margin-top: 100px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .logo {
-  transform: scale(2.0);
-  height: 500px;
-  width: auto;
-  vertical-align: middle;
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
+/* Swiper Styles */
 .hero {
   background-color: var(--lite-lavender);
-  padding: 20px 0;
-  text-align: center;
+  padding: 40px 0;
 }
 
-.hero .swiper-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.swiper-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Section Styles */
+.section {
+  padding: 60px 20px;
+  margin: 0;
 }
 
 .menu, .about, .contact {
   color: white;
-  padding: 50px;
+  padding: 60px 20px;
   text-align: center;
 }
 
-.menu {
-  background-color: var(--lite-purple);
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
-.about {
-  background-color: var(--lite-blue);
+h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 16px;
 }
 
-.contact {
-  background-color: var(--lite-orange);
-}
-
+/* Footer */
 .footer {
   background-color: #333;
   color: white;
@@ -165,122 +199,77 @@ body {
   text-align: center;
 }
 
-.section {
-  padding: 60px 20px;
-  margin: 20px 0;
-}
-
-.header, .menu, .about, .contact, .footer {
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  font-size: 2.5em;
-  font-weight: 600;
-}
-
-h2 {
-  font-size: 2em;
-  font-weight: 500;
-}
-
-.swiper-slide {
-  width: 100%;
-  height: auto;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Media Queries for Responsiveness */
+/* Media Queries */
 @media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+  }
+
   body {
-    font-size: 1.1em;
+    font-size: 14px;
   }
 
   .top-bar {
-    padding: 10px;
-    height: auto;
-    flex-wrap: nowrap;
+    padding: 0 15px;
   }
 
   .nav-links {
-    gap: 15px;
+    gap: 10px;
   }
 
   .nav-links a {
-    font-size: 1.1em;
+    font-size: 1rem;
+    padding: 6px 8px;
   }
 
   .topbar-icon {
-    width: 120px;
+    width: 100px;
   }
 
   .header {
-    min-height: 70vh;
+    min-height: 80vh;
   }
 
   .logo-container {
-    margin-top: 80px;
+    padding: 15px;
   }
 
   .logo {
-    height: 200px;
+    max-height: 300px;
   }
 
-  .header, .menu, .about, .contact {
-    padding: 30px;
+  .section {
+    padding: 40px 15px;
   }
 
   h1 {
-    font-size: 2em;
+    font-size: 1.8rem;
   }
 
   h2 {
-    font-size: 1.5em;
+    font-size: 1.5rem;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  body {
-    font-size: 1.1em;
-  }
-
-  .top-bar {
-    padding: 10px 15px;
-  }
-
-  .nav-links {
-    gap: 15px;
-  }
-
+@media (max-width: 480px) {
   .nav-links a {
-    font-size: 1.2em;
+    font-size: 0.9rem;
+    padding: 4px 6px;
   }
 
   .topbar-icon {
-    width: 130px;
-  }
-
-  .logo-container {
-    margin-top: 90px;
+    width: 80px;
   }
 
   .logo {
-    height: 250px;
+    max-height: 250px;
   }
+}
 
-  .header, .menu, .about, .contact {
-    padding: 40px;
-  }
-
-  h1 {
-    font-size: 2.2em;
-  }
-
-  h2 {
-    font-size: 1.8em;
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .nav-links a:hover {
+    color: white;
+    background-color: transparent;
   }
 }
