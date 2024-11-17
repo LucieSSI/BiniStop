@@ -1,4 +1,3 @@
-// app.js
 document.addEventListener('DOMContentLoaded', function() {
   const topBar = document.querySelector(".top-bar");
   let lastScroll = 0;
@@ -22,33 +21,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, { passive: true });
 
-  // Initialize Swiper with mobile-friendly settings
+  // Enhanced Swiper initialization with better PC support
   const swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
     spaceBetween: 20,
     loop: true,
     grabCursor: true,
-    touchRatio: 1,
-    touchAngle: 45,
-    resistance: true,
-    resistanceRatio: 0.65,
-    speed: 400,
+    keyboard: {
+      enabled: true,
+    },
+    mousewheel: {
+      invert: false,
+      sensitivity: 1,
+    },
+    speed: 600,
     autoplay: {
-      delay: 3000,
+      delay: 5000,
       disableOnInteraction: false,
+      pauseOnMouseEnter: true,
     },
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
       dynamicBullets: true,
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '"></span>';
+      },
     },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+      hideOnClick: false,
     },
     breakpoints: {
       640: {
         slidesPerView: 1,
+        spaceBetween: 20,
       },
       768: {
         slidesPerView: 2,
@@ -57,8 +65,21 @@ document.addEventListener('DOMContentLoaded', function() {
       1024: {
         slidesPerView: 3,
         spaceBetween: 40,
+        navigation: {
+          enabled: true,
+        },
       },
-    }
+    },
+    on: {
+      init: function () {
+        this.el.addEventListener('mouseenter', () => {
+          this.autoplay.stop();
+        });
+        this.el.addEventListener('mouseleave', () => {
+          this.autoplay.start();
+        });
+      },
+    },
   });
 
   // Smooth scroll for navigation links
