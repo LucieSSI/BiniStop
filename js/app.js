@@ -1,6 +1,6 @@
 window.addEventListener("scroll", function() {
   const topBar = document.querySelector(".top-bar");
-  const logoHeight = document.querySelector(".header").offsetHeight;
+  const logoHeight = document.querySelector(".header .logo").offsetHeight; // Get the height of the logo
 
   if (window.scrollY > logoHeight) {
     topBar.classList.add("scrolled");

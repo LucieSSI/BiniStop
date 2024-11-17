@@ -29,31 +29,58 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* Top Bar and Navigation Styles */
 .top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0);
-  padding: 10px 20px;
+  padding: 5px 20px;
   width: 100%;
+  height: 70px;
   position: fixed;
   top: 0;
   z-index: 10;
   transition: background-color 0.3s ease;
-  flex-warp: wrap;
+}
+
+.top-bar.scrolled {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-left: auto; /* Push nav links to the left */
+  order: 2; /* Ensure nav links come first */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: 600;
+  transition: color 0.3s;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.nav-links a:hover {
+  color: var(--lite-blue);
 }
 
 .barlogo {
   display: flex;
   align-items: center;
-  flex-shrink: 0;
+  order: 1; /* Ensure logo comes second */
+  margin-right: 20px; /* Add some spacing from the nav links */
 }
 
 .topbar-icon {
@@ -61,63 +88,62 @@ body {
   height: auto;
 }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.nav-links a {
-  color:white;
-  text-decoration: none;
-  font-size: 1.3em;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-.top-bar a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.3em;
-  font-weight: 600;
-  margin: 0 15px;
-  transition: color 0.3s;
-}
-
-.top-bar a:hover {
-  color: var(--lite-blue);
-}
-
-.top-bar.scrolled {
-  background-color: var(--lite-blue);
-}
-
+/* Updated Header Styles */
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--lite-orange);
-  color: white;
+  min-height: 65vh;
+  background-image: url("/icons/headerimg.png"); /* Update this path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
   padding: 20px;
   text-align: center;
 }
 
-.logo {
-  height: 300px;
-  width: auto;
-  vertical-align: middle;
-  margin-top: 25px;
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
-.hero, .menu, .about, .contact {
-  color: white;
-  padding: 50px;
-  text-align: center;
+.logo-container {
+  position: relative;
+  z-index: 2;
+  margin-top: 100px;
+}
+
+.logo {
+  transform: scale(2.0);
+  height: 500px;
+  width: auto;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
 }
 
 .hero {
   background-color: var(--lite-lavender);
+  padding: 20px 0;
+  text-align: center;
+}
+
+.hero .swiper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu, .about, .contact {
+  color: white;
+  padding: 50px;
+  text-align: center;
 }
 
 .menu {
@@ -168,47 +194,62 @@ img {
   height: auto;
 }
 
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-  .top-bar {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
+  body {
+    font-size: 1.1em;
   }
 
-  .topbar-icon {
-    margin-bottom: 10px;
-    width: 120px;
+  .top-bar {
+    padding: 10px;
+    height: auto;
+    flex-wrap: nowrap;
   }
 
   .nav-links {
-    flex-direction: row;
-    gap: 10px;
+    gap: 15px;
   }
 
   .nav-links a {
     font-size: 1.1em;
   }
 
+  .topbar-icon {
+    width: 120px;
+  }
+
+  .header {
+    min-height: 70vh;
+  }
+
+  .logo-container {
+    margin-top: 80px;
+  }
+
   .logo {
-    height: 200px; /* Adjust as needed */
+    height: 200px;
   }
 
   .header, .menu, .about, .contact {
-    padding: 30px; /* Reduce padding for smaller screens */
+    padding: 30px;
   }
 
   h1 {
-    font-size: 2em; /* Smaller heading for mobile */
+    font-size: 2em;
   }
 
   h2 {
-    font-size: 1.5em; /* Smaller subheading for mobile */
+    font-size: 1.5em;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    font-size: 1.1em;
+  }
+
   .top-bar {
-    padding: 10px 20px;
+    padding: 10px 15px;
   }
 
   .nav-links {
@@ -220,22 +261,26 @@ img {
   }
 
   .topbar-icon {
-    width: 120px; /* Adjust as needed */
+    width: 130px;
+  }
+
+  .logo-container {
+    margin-top: 90px;
   }
 
   .logo {
-    height: 250px; /* Adjust as needed */
+    height: 250px;
   }
 
   .header, .menu, .about, .contact {
-    padding: 40px; /* Adjust padding for tablet screens */
+    padding: 40px;
   }
 
   h1 {
-    font-size: 2.2em; /* Medium heading for tablet */
+    font-size: 2.2em;
   }
 
   h2 {
-    font-size: 1.8em; /* Medium subheading for tablet */
+    font-size: 1.8em;
   }
 }
