@@ -1,4 +1,3 @@
-// app.js
 document.addEventListener('DOMContentLoaded', function() {
   const topBar = document.querySelector(".top-bar");
   let lastScroll = 0;
@@ -22,20 +21,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, { passive: true });
 
-  // Initialize Swiper with mobile-friendly settings
+  // Fixed Swiper initialization
   const swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
-    spaceBetween: 20,
+    spaceBetween: 30,
     loop: true,
+    centeredSlides: true,
+    effect: 'slide',
+    loopedSlides: 3,
     grabCursor: true,
-    touchRatio: 1,
-    touchAngle: 45,
-    resistance: true,
-    resistanceRatio: 0.65,
-    speed: 400,
+    keyboard: {
+      enabled: true,
+    },
+    speed: 600,
     autoplay: {
-      delay: 3000,
+      delay: 5000,
       disableOnInteraction: false,
+      pauseOnMouseEnter: true,
     },
     pagination: {
       el: '.swiper-pagination',
@@ -45,20 +47,32 @@ document.addEventListener('DOMContentLoaded', function() {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+      hideOnClick: false,
     },
     breakpoints: {
-      640: {
+      320: {
         slidesPerView: 1,
+        spaceBetween: 20,
       },
       768: {
-        slidesPerView: 2,
+        slidesPerView: 1,
         spaceBetween: 30,
       },
       1024: {
-        slidesPerView: 3,
+        slidesPerView: 1,
         spaceBetween: 40,
+      }
+    },
+    on: {
+      init: function () {
+        this.el.addEventListener('mouseenter', () => {
+          this.autoplay.stop();
+        });
+        this.el.addEventListener('mouseleave', () => {
+          this.autoplay.start();
+        });
       },
-    }
+    },
   });
 
   // Smooth scroll for navigation links
