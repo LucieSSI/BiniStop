@@ -21,18 +21,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, { passive: true });
 
-  // Enhanced Swiper initialization with better PC support
+  // Fixed Swiper initialization
   const swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
-    spaceBetween: 20,
+    spaceBetween: 30,
     loop: true,
+    centeredSlides: true,
+    effect: 'slide',
+    loopedSlides: 3,
     grabCursor: true,
     keyboard: {
       enabled: true,
-    },
-    mousewheel: {
-      invert: false,
-      sensitivity: 1,
     },
     speed: 600,
     autoplay: {
@@ -44,9 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
       el: '.swiper-pagination',
       clickable: true,
       dynamicBullets: true,
-      renderBullet: function (index, className) {
-        return '<span class="' + className + '"></span>';
-      },
     },
     navigation: {
       nextEl: '.swiper-button-next',
@@ -54,21 +50,18 @@ document.addEventListener('DOMContentLoaded', function() {
       hideOnClick: false,
     },
     breakpoints: {
-      640: {
+      320: {
         slidesPerView: 1,
         spaceBetween: 20,
       },
       768: {
-        slidesPerView: 2,
+        slidesPerView: 1,
         spaceBetween: 30,
       },
       1024: {
-        slidesPerView: 3,
+        slidesPerView: 1,
         spaceBetween: 40,
-        navigation: {
-          enabled: true,
-        },
-      },
+      }
     },
     on: {
       init: function () {
