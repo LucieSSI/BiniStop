@@ -4,6 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
   let lastScroll = 0;
   let scrollTimeout;
 
+  // Add this new code for the logo click functionality
+  const barLogo = document.querySelector(".barlogo");
+  barLogo.style.cursor = "pointer"; // Makes the cursor change to pointer on hover
+  barLogo.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
   window.addEventListener("scroll", function() {
     if (!scrollTimeout) {
       scrollTimeout = setTimeout(() => {
