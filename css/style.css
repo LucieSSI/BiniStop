@@ -1,3 +1,4 @@
+/* style.css */
 :root {
   --prim-pink: #FF69B4;
   --prim-green: #3CB371;
@@ -43,6 +44,7 @@ body {
   touch-action: manipulation;
 }
 
+/* Top Bar and Navigation Styles */
 .top-bar {
   display: flex;
   align-items: center;
@@ -83,7 +85,8 @@ body {
   white-space: nowrap;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:active {
   color: var(--lite-blue);
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -100,12 +103,13 @@ body {
   object-fit: contain;
 }
 
+/* Header Styles */
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url("./icons/headerimg.png");
+  background-image: url("../icons/headerimg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -143,41 +147,44 @@ body {
   transition: transform 0.3s ease;
 }
 
+/* Swiper Styles */
 .hero {
   background-color: var(--lite-lavender);
   padding: 40px 0;
-  overflow: hidden;
 }
 
-.swiper {
+.swiper-container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  height: 400px;
 }
 
 .swiper-slide {
+  text-align: center;
+  font-size: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .swiper-slide img {
   width: 100%;
   height: auto;
-  max-height: 600px;
-  object-fit: cover;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: white;
+  color: #fff;
   background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 50%;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
 }
 
 .swiper-button-next:after,
@@ -186,39 +193,23 @@ body {
 }
 
 .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background-color: white;
+  background: #fff;
   opacity: 0.5;
 }
 
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background-color: white;
+}
+
+/* Section Styles */
+.section {
+  padding: 60px 20px;
+  margin: 0;
 }
 
 .menu, .about, .contact {
   color: white;
   padding: 60px 20px;
-  text-align: center;
-}
-
-.menu {
-  background-color: var(--lite-purple);
-}
-
-.about {
-  background-color: var(--lite-blue);
-}
-
-.contact {
-  background-color: var(--lite-orange);
-}
-
-.footer {
-  background-color: #333;
-  color: white;
-  padding: 20px;
   text-align: center;
 }
 
@@ -234,9 +225,27 @@ h2 {
   margin-bottom: 16px;
 }
 
+/* Footer */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
   :root {
     --header-height: 60px;
+  }
+
+  .swiper-container {
+    height: 300px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    padding: 20px;
   }
 
   body {
@@ -272,19 +281,8 @@ h2 {
     max-height: 300px;
   }
 
-  .swiper {
-    padding: 0 10px;
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    width: 30px;
-    height: 30px;
-  }
-
-  .swiper-button-next:after,
-  .swiper-button-prev:after {
-    font-size: 16px;
+  .section {
+    padding: 40px 15px;
   }
 
   h1 {
@@ -309,8 +307,13 @@ h2 {
   .logo {
     max-height: 250px;
   }
+
+  .swiper-container {
+    height: 250px;
+  }
 }
 
+/* Touch Device Optimizations */
 @media (hover: none) {
   .nav-links a:hover {
     color: white;
