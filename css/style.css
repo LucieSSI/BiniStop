@@ -192,38 +192,31 @@ body {
 
 .swiper-button-next,
 .swiper-button-prev {
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  color: var(--lite-purple);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: auto;  /* Remove fixed width */
+  height: auto; /* Remove fixed height */
+  background-color: transparent; /* Remove white background */
+  box-shadow: none; /* Remove shadow */
+  color: white; /* Make arrows white */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Center the arrow */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /* Positioning */
-  margin: 0 20px;
+  /* Update positioning */
+  margin: 0;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .swiper-button-next:after,
 .swiper-button-prev:after {
-  font-size: 20px;
+  font-size: 24px; /* Adjust size as needed */
   font-weight: bold;
-  color: var(--lite-purple);
-  transition: transform 0.3s ease;
+  color: white; /* Make arrows white */
 }
 
 /* Hover effects */
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  transform: translateY(-50%) scale(1.1);
+  box-shadow: none;
+  transform: translateY(-50%) scale(1.2);
 }
 
 .swiper-button-next:hover:after {
@@ -237,7 +230,6 @@ body {
 .swiper-button-next:active,
 .swiper-button-prev:active {
   transform: translateY(-50%) scale(0.95);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .swiper-pagination {
