@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Top Bar Scroll Effect
   const topBar = document.querySelector(".top-bar");
   let lastScroll = 0;
   let scrollTimeout;
 
-  // Throttled scroll handler
   window.addEventListener("scroll", function() {
     if (!scrollTimeout) {
       scrollTimeout = setTimeout(() => {
@@ -21,61 +21,55 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, { passive: true });
 
-  // Fixed Swiper initialization
-  const swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    centeredSlides: true,
-    effect: 'slide',
-    loopedSlides: 3,
-    grabCursor: true,
-    keyboard: {
-      enabled: true,
+  // Initialize Swiper
+  const swiper = new Swiper('.swiper-main', {
+    effect: 'fade', // Fade effect between slides
+    fadeEffect: {
+      crossFade: true
     },
-    speed: 600,
+    loop: true,
+    speed: 800,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
-      pauseOnMouseEnter: true,
+      pauseOnMouseEnter: true
+    },
+    grabCursor: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
-      dynamicBullets: true,
+      dynamicBullets: true
     },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-      hideOnClick: false,
-    },
+    // Responsive breakpoints
     breakpoints: {
       320: {
-        slidesPerView: 1,
-        spaceBetween: 20,
+        slidesPerView: 1
+      },
+      480: {
+        slidesPerView: 1
       },
       768: {
-        slidesPerView: 1,
-        spaceBetween: 30,
-      },
-      1024: {
-        slidesPerView: 1,
-        spaceBetween: 40,
+        slidesPerView: 1
       }
     },
+    // Events
     on: {
-      init: function () {
+      init: function() {
         this.el.addEventListener('mouseenter', () => {
           this.autoplay.stop();
         });
         this.el.addEventListener('mouseleave', () => {
           this.autoplay.start();
         });
-      },
-    },
+      }
+    }
   });
 
-  // Smooth scroll for navigation links
+  // Smooth Scroll for Navigation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
