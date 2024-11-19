@@ -330,6 +330,7 @@ h2 {
   }
 
   .slide-content img {
+    height: 50vh;
     object-fit: contain;
   }
 
@@ -402,6 +403,7 @@ h2 {
   }
 
   .slide-content img {
+    height: 50vh;
     object-fit: cover;
   }
 
