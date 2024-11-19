@@ -326,7 +326,7 @@ h2 {
   }
 
   .hero {
-    height: 35vh;
+    height: 40vh;
   }
 
   .slide-content img {
@@ -398,7 +398,7 @@ h2 {
 @media (max-width: 480px) {
   .hero {
     padding: 20px 0;
-    height: 35vh;
+    height: 40vh;
   }
 
   .slide-content img {
