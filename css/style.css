@@ -325,6 +325,9 @@ h2 {
     --header-height: 60px;
   }
 
+  .slide-content {
+    object-fit: scale-down;
+  }
   .swiper-main {
     padding: 0 10px;
   }
@@ -394,6 +397,7 @@ h2 {
 
   .slide-content {
     padding-bottom: 75%; /* 4:3 Aspect Ratio for mobile */
+    object-fit: scale-down;
   }
 
   .swiper-button-next,
