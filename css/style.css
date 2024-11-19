@@ -396,7 +396,7 @@ h2 {
   }
 
   .slide-content img {
-    padding-bottom: 75%; /* 4:3 Aspect Ratio for mobile */
+    padding-bottom: 100%; /* 4:3 Aspect Ratio for mobile */
     object-fit: scale-down;
   }
 
