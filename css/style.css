@@ -330,7 +330,7 @@ h2 {
   }
 
   .slide-content img {
-    object-fit: cover;
+    object-fit: scale-down;
   }
 
   .swiper-main {
@@ -402,7 +402,7 @@ h2 {
   }
 
   .slide-content img {
-    object-fit: cover;
+    object-fit: scale-down;
   }
 
   .swiper-button-next,
