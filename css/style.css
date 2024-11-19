@@ -326,11 +326,11 @@ h2 {
   }
 
   .hero {
-    height: 40vh;
+    height: 60vh;
   }
 
   .slide-content img {
-    object-fit: scale-down;
+    object-fit: contain;
   }
 
   .swiper-main {
@@ -398,11 +398,11 @@ h2 {
 @media (max-width: 480px) {
   .hero {
     padding: 20px 0;
-    height: 40vh;
+    height: 60vh;
   }
 
   .slide-content img {
-    object-fit: scale-down;
+    object-fit: cover;
   }
 
   .swiper-button-next,
