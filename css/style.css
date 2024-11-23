@@ -416,7 +416,9 @@ h2 {
   }
 
   .hero {
-    height: 25vh;
+    height: auto;
+    mini-height: 400px;
+    padding: 40px 0;
   }
 
   .slide-content img {
