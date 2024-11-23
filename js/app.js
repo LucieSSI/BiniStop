@@ -97,3 +97,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Menu tab functionality
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const menuCategories = document.querySelectorAll('.menu-category');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons and categories
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      menuCategories.forEach(category => category.classList.remove('active'));
+
+      // Add active class to clicked button and corresponding category
+      button.classList.add('active');
+      const categoryId = button.getAttribute('data-category');
+      document.getElementById(categoryId).classList.add('active');
+    });
+  });
+});
