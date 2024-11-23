@@ -284,7 +284,10 @@ body {
 }
 
 .about {
+  padding: 60px 20px;
+  text-align: center;
   background-color: var(--lite-orange);
+  color: white;
 }
 
 .menu {
@@ -296,7 +299,10 @@ body {
 }
 
 .contact {
+  padding: 60px 20px;
+  text-align: center;
   background-color: var(--lite-lavender);
+  color: white;
 }
 
 h1 {
@@ -409,6 +415,176 @@ h2 {
   color: white;
 }
 
+.qr-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.qr-code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.qr-code:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.qr-image {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.qr-code p {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.social-button i {
+  font-size: 1.2rem;
+}
+
+.social-button.facebook {
+  background-color: #1877f2;
+}
+
+.social-button.instagram {
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+.social-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.about-intro {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.vision-mission-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px auto;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+.vision-card,
+.mission-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.vision-card:hover,
+.mission-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.vision-card h3,
+.mission-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.vision-card p,
+.mission-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.values-container {
+  margin-top: 60px;
+}
+
+.values-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.value-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.value-item:hover {
+  transform: translateY(-5px);
+}
+
+.value-item i {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.value-item h4 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.value-item p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   :root {
@@ -501,6 +677,37 @@ h2 {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
   }
+  .qr-container {
+    gap: 20px;
+  }
+
+  .qr-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .social-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .vision-mission-container {
+    gap: 20px;
+  }
+
+  .vision-card,
+  .mission-card {
+    min-width: 100%;
+  }
+
+  .about-intro {
+    font-size: 1.1rem;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -549,6 +756,39 @@ h2 {
 
   .menu-grid {
     grid-template-columns: 1fr;
+  }
+  .qr-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-button {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-card,
+  .mission-card {
+    padding: 20px;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+  }
+
+  .vision-card h3,
+  .mission-card h3 {
+    font-size: 1.3rem;
   }
 }
 
