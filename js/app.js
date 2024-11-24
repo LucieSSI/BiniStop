@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Top Bar Scroll Effect
   const topBar = document.querySelector(".top-bar");
+  const header = document.querySelector(".header");
   let lastScroll = 0;
   let scrollTimeout;
 
-  // Add this new code for the logo click functionality
+  // Add logo click functionality
   const barLogo = document.querySelector(".barlogo");
-  barLogo.style.cursor = "pointer"; // Makes the cursor change to pointer on hover
+  barLogo.style.cursor = "pointer";
   barLogo.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
@@ -18,8 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!scrollTimeout) {
       scrollTimeout = setTimeout(() => {
         const currentScroll = window.pageYOffset;
+        const headerBottom = header.offsetTop + header.offsetHeight;
 
-        if (currentScroll > 50) {
+        if (currentScroll > headerBottom) {
           topBar.classList.add("scrolled");
         } else {
           topBar.classList.remove("scrolled");
@@ -33,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize Swiper
   const swiper = new Swiper('.swiper-main', {
-    effect: 'fade', // Fade effect between slides
+    effect: 'fade',
     fadeEffect: {
       crossFade: true
     },
@@ -54,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
       clickable: true,
       dynamicBullets: true
     },
-    // Responsive breakpoints
     breakpoints: {
       320: {
         slidesPerView: 1
@@ -66,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
         slidesPerView: 1
       }
     },
-    // Events
     on: {
       init: function() {
         this.el.addEventListener('mouseenter', () => {
@@ -96,9 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
   // Menu tab functionality
   const tabButtons = document.querySelectorAll('.tab-button');
   const menuCategories = document.querySelectorAll('.menu-category');
